@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.ClearSystemProperties;
 
 
-public class PropertiesTestCase {
+public class GetPropertiesV1TestCase {
 	
 	
 	@Rule
