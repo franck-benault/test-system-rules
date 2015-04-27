@@ -9,9 +9,7 @@ import net.franck.benault.sample.Hello;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.ClearSystemProperties;
 
 
 public class SystemOutErrTestCase {
@@ -36,7 +34,7 @@ public class SystemOutErrTestCase {
 
 	@Test
 	public void testOut() {
-	    Hello hello = new Hello();
+	    new Hello();
 	    assertEquals("Hello", outContent.toString());
 	}
 

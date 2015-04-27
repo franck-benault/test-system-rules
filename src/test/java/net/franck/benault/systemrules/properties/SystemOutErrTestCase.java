@@ -19,7 +19,7 @@ public class SystemOutErrTestCase {
 	
 	@Test
 	public void testOut() {
-	    Hello hello = new Hello();
+	    new Hello();
 	    assertEquals("Hello", logOut.getLog());
 	}
 
