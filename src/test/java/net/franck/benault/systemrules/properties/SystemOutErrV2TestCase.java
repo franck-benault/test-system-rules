@@ -5,24 +5,23 @@ import net.franck.benault.sample.Hello;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.LogMode;
-import org.junit.contrib.java.lang.system.StandardErrorStreamLog;
-import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
+import org.junit.contrib.java.lang.system.SystemOutRule;
+import org.junit.contrib.java.lang.system.SystemErrRule;
 
 public class SystemOutErrV2TestCase {
 	
 	@Rule
-	public final StandardOutputStreamLog logOut = new StandardOutputStreamLog(LogMode.LOG_ONLY);
+	public final SystemOutRule logOut = new SystemOutRule().enableLog().mute();
 
 	@Rule
-	public final StandardErrorStreamLog logError = new StandardErrorStreamLog(LogMode.LOG_ONLY);
+	public final SystemErrRule logError = new SystemErrRule().enableLog().mute();
 
 	
 	@Test
 	public void testOut() {
 	    new Hello();
 	    assertEquals("Hello", logOut.getLog());
-	    logOut.clear();
+	    logOut.clearLog();
 	    assertEquals("",logOut.getLog());
 	    new Hello("Bob");
 	    assertEquals("Hello Bob", logOut.getLog());	    
@@ -33,7 +32,7 @@ public class SystemOutErrV2TestCase {
 		Hello hello = new Hello();
 		hello.error(); 
 	    assertEquals("error...", logError.getLog());
-	    logError.clear();
+	    logError.clearLog();
 	    assertEquals("",logError.getLog());
 	    hello.error("Bob"); 
 	    assertEquals("error Bob", logError.getLog());

@@ -5,16 +5,16 @@ import net.franck.benault.sample.Hello;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.StandardErrorStreamLog;
-import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
+import org.junit.contrib.java.lang.system.SystemErrRule;
+import org.junit.contrib.java.lang.system.SystemOutRule;
 
 public class SystemOutErrTestCase {
 	
 	@Rule
-	public final StandardOutputStreamLog logOut = new StandardOutputStreamLog();
+	public final SystemOutRule logOut = new SystemOutRule().enableLog();
 
 	@Rule
-	public final StandardErrorStreamLog logError = new StandardErrorStreamLog();
+	public final SystemErrRule logError = new SystemErrRule().enableLog();
 
 	
 	@Test
